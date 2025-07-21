@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosiaca Re-evolución 350: Universo Transmedia Completo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel Decorative', cursive;
+        }
+        .tab-active {
+            background-color: #FBBF24;
+            color: #111827;
+            border-bottom-width: 4px;
+            border-bottom-color: #F59E0B;
+        }
+        .tab-inactive {
+            background-color: #374151;
+            color: #D1D5DB;
+        }
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+        }
+        .card-gradient {
+            background: linear-gradient(145deg, #1F2937, #374151);
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(251, 191, 36, 0.1), 0 10px 10px -5px rgba(251, 191, 36, 0.08);
+        }
+        .section-content {
+            display: none;
+        }
+        .section-content.active {
+            display: block;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1F2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FBBF24;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F59E0B;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <!-- Contenedor Principal -->
+    <div class="container mx-auto p-4 md:p-8">
+
+        <!-- Encabezado -->
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="font-cinzel text-4xl md:text-6xl font-bold text-amber-400">Cosiaca</h1>
+            <h2 class="font-cinzel text-2xl md:text-4xl font-bold text-amber-500">Re-evolución 350</h2>
+            <p class="mt-4 text-gray-400 max-w-3xl mx-auto">Un universo transmedia para celebrar la historia de Medellín de una forma crítica, festiva y tecnológica.</p>
+        </header>
+
+        <!-- Pestañas de Navegación -->
+        <nav class="flex justify-center mb-8 space-x-2 md:space-x-4">
+            <button class="tab-button tab-active font-bold py-2 px-4 rounded-t-lg flex items-center gap-2" data-tab="universo">🌍 <span class="hidden md:inline">Universo Transmedia</span></button>
+            <button class="tab-button tab-inactive font-bold py-2 px-4 rounded-t-lg flex items-center gap-2" data-tab="personajes">👥 <span class="hidden md:inline">Biblia de Personajes</span></button>
+            <button class="tab-button tab-inactive font-bold py-2 px-4 rounded-t-lg flex items-center gap-2" data-tab="proyectos">🚀 <span class="hidden md:inline">Proyectos</span></button>
+        </nav>
+
+        <!-- Secciones de Contenido -->
+        <main>
+            <!-- Sección Universo Transmedia -->
+            <section id="universo" class="section-content active">
+                 <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+                    <h3 class="font-cinzel text-3xl font-bold text-amber-400 mb-4 border-b-2 border-amber-500 pb-2">El Proyecto</h3>
+                    <p class="mb-4">"Cosiaca Re-evolución 350" es una plataforma de diálogo cultural que trasciende la creación de productos mediáticos. Utilizando la figura de <strong>José García “Cosiaca”</strong> como guía, el proyecto explora 350 años de historia de Medellín a través de más de 160 personajes. Es una invitación a jugar, escuchar, debatir y crear, usando la tecnología como un puente para reconectar a los ciudadanos con su propia memoria e identidad.</p>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg text-amber-400">🎯 Objetivo</h4>
+                            <p class="text-gray-400">Consolidar un universo narrativo coherente para garantizar la consistencia y riqueza del proyecto en todas sus plataformas: podcast, videojuego, cómics, talleres y más.</p>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg text-amber-400">🔗 Estrategia</h4>
+                            <p class="text-gray-400">Desarrollar una ecología de medios interconectados donde cada producto enriquece al otro, fomentando la participación comunitaria y la apropiación de la historia local.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Biblia de Personajes -->
+            <section id="personajes" class="section-content">
+                 <div class="text-center mb-6 sticky top-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm py-4 z-10">
+                    <input id="search-input" type="text" placeholder="Buscar personaje por nombre o arquetipo..." class="w-full max-w-lg p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div id="categorias-container" class="space-y-12">
+                    <!-- Las categorías y tarjetas de personajes se inyectarán aquí -->
+                </div>
+            </section>
+
+            <!-- Sección Proyectos -->
+            <section id="proyectos" class="section-content relative overflow-hidden rounded-lg">
+                 <!-- Contenido desenfocado -->
+                 <div class="space-y-8" style="filter: blur(5px); pointer-events: none; user-select: none;">
+                    <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+                        <h3 class="font-cinzel text-3xl font-bold text-amber-400 mb-4 border-b-2 border-amber-500 pb-2">🎙️ Podcast: Ecos de Medellín</h3>
+                        <p class="mb-4">Una serie de tertulias sonoras donde Cosiaca modera debates imposibles entre personajes de distintas épocas. Cada episodio, con sonido inmersivo, explora temas que han forjado a Medellín.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+                        <h3 class="font-cinzel text-3xl font-bold text-amber-400 mb-4 border-b-2 border-amber-500 pb-2">🎮 Videojuego: Rescate en el Archivo</h3>
+                        <p class="mb-4">Una aplicación móvil (iOS/Android) de aventura narrativa y puzzles con Realidad Aumentada. El jugador, como un "Archivista Vivo", debe viajar en el tiempo para recuperar fragmentos de memoria perdidos.</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+                        <h3 class="font-cinzel text-3xl font-bold text-amber-400 mb-4 border-b-2 border-amber-500 pb-2">🎬 Cómic Animado: Crónicas del Absurdo Paisa</h3>
+                        <p class="mb-4">Serie de cómics animados cortos para redes sociales (Instagram Reels, TikTok). Cada episodio es una viñeta autoconclusiva narrada por Cosiaca, reinterpretando la historia y la cotidianidad con humor absurdo.</p>
+                    </div>
+                </div>
+                <!-- Capa "Próximamente" -->
+                <div class="absolute inset-0 z-10 flex items-center justify-center bg-gray-900 bg-opacity-60">
+                    <h2 class="font-cinzel text-5xl md:text-7xl font-black text-amber-300 text-center" style="text-shadow: 0 0 15px rgba(252, 211, 77, 0.7);">
+                        PRÓXIMAMENTE
+                    </h2>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>&copy; 2025 - Núcleo Colectivo. Un proyecto de Cosiaca Re-evolución 350.</p>
+        </footer>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 z-50 items-center justify-center hidden modal-backdrop">
+        <div id="modal-content" class="bg-gray-800 text-white rounded-lg shadow-2xl w-11/12 max-w-2xl max-h-[90vh] overflow-y-auto p-6 md:p-8 relative border-2 border-amber-500">
+            <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- BASE DE DATOS COMPLETA DE PERSONAJES POR CATEGORÍAS ---
+        const universoCosiaca = {
+            "🎭 Personaje Principal": [{
+                nombre: "José García “Cosiaca”", emoji: "🤠",
+                rol: "Protagonista, narrador y guía de la experiencia transmedia.",
+                contexto: "Basado en un personaje oral y popular antioqueño, símbolo del humor costumbrista, el doble sentido, la crítica social y la sabiduría del pueblo. Es la voz guía del universo.",
+                arquetipo: "El pícaro sabio",
+                apareceEn: "Chatbot (CosiacaBot), podcast, libros ilustrados, generador de trovas, app interactiva, trivias históricas, videos deepfake, cómics, juegos, narrativas AR y actividades pedagógicas."
+            }],
+            "🏛️ Personajes Históricos: Fundadores y Políticos": [
+                { nombre: "Francisco Herrera Campuzano", emoji: "📜", rol: "Oidor colonial.", contexto: "Establece el Resguardo de El Poblado.", arquetipo: "Fundador / Patriarca", apareceEn: "Línea de tiempo interactiva, trivia histórica." },
+                { nombre: "Miguel de Aguinaga", emoji: "🖋️", rol: "Gobernador.", contexto: "Crea la Villa de Medellín en 1675.", arquetipo: "Fundador oficial", apareceEn: "Acto de fundación en AR, cápsula histórica." },
+                { nombre: "José Félix de Restrepo", emoji: "⛓️‍💥", rol: "Jurista abolicionista.", contexto: "Impulsor de la abolición de la esclavitud y la educación.", arquetipo: "Reformador / Ilustrado", apareceEn: "IA de debate ético, juego constitucional." },
+                { nombre: "Pedro Justo Berrío", emoji: "🚂", rol: "Gobernador de Antioquia, modernizador.", contexto: "Figura clave del siglo XIX, impulsó la infraestructura y la educación.", arquetipo: "El padre del progreso", apareceEn: "Juegos, IA histórica, cómic educativo." },
+                { nombre: "Carlos E. Restrepo", emoji: "🤝", rol: "Presidente conciliador.", contexto: "Gobernante moderado y reflexivo de principios del siglo XX.", arquetipo: "Reconciliador", apareceEn: "IA de decisiones políticas, trivia histórica." },
+                { nombre: "Marco Fidel Suárez", emoji: "✈️", rol: "Presidente autodidacta.", contexto: "De origen humilde, llegó a la presidencia a través del intelecto.", arquetipo: "Intelectual autodidacta", apareceEn: "App educativa, cápsula histórica." },
+                { nombre: "Carlos Gaviria Díaz", emoji: "⚖️", rol: "Jurista, magistrado y político.", contexto: "Defensor del Estado Social de Derecho.", arquetipo: "Jurista del pueblo / Ético radical", apareceEn: "Juego constitucional, IA de justicia, trivia legal." },
+                { nombre: "Sergio Fajardo", emoji: "🏫", rol: "Matemático y exalcalde.", contexto: "Líder de la transformación urbana de Medellín.", arquetipo: "El tecnócrata ciudadano", apareceEn: "Juego de decisiones, trivia educativa, IA de ciudad." },
+                { nombre: "Alonso Salazar", emoji: "🏙️", rol: "Periodista y exalcalde.", contexto: "Gestión ciudadana Medellín 2008–2011.", arquetipo: "Mediador urbano", apareceEn: "IA cívica, juego de toma de decisiones, cápsula documental." },
+                { nombre: "Federico Gutiérrez", emoji: "🏗️", rol: "Alcalde y político.", contexto: "Gestión urbana reciente.", arquetipo: "El gerente de ciudad", apareceEn: "Trivia de obras, IA de ciudad, cápsula administrativa." },
+                { nombre: "Daniel Quintero Calle", emoji: "💻", rol: "Exalcalde de Medellín.", contexto: "Figura política polémica y tecnólogo reciente.", arquetipo: "El tecnócrata disruptivo", apareceEn: "IA de gobierno, simulador político, trivia de decisiones." },
+                { nombre: "Guillermo Gaviria", emoji: "🕊️", rol: "Gobernador asesinado.", contexto: "Asesinado por proponer la 'no violencia'.", arquetipo: "Mártir del diálogo", apareceEn: "Cápsula de memoria, IA reconciliadora." },
+                { nombre: "Gilberto Echeverri", emoji: "🕊️", rol: "Gestor de paz asesinado.", contexto: "Mediador asesinado junto a Guillermo Gaviria.", arquetipo: "Voz silenciosa", apareceEn: "Activación memorial, IA de paz." },
+                 { nombre: "Belisario Betancur", emoji: "✒️", rol: "Presidente.", contexto: "Promotor del arte y la paz.", arquetipo: "El poeta presidente", apareceEn: "Cápsula lírica, IA cultural, trivia de conciliación." },
+                { nombre: "César Gaviria", emoji: "📈", rol: "Presidente.", contexto: "Apertura económica, neoliberalismo.", arquetipo: "El transformador económico", apareceEn: "IA de decisiones, trivia de historia económica." },
+                { nombre: "Humberto de la Calle", emoji: "🕊️", rol: "Negociador de paz.", contexto: "Figura clave en el Proceso de Paz de La Habana.", arquetipo: "El diplomático de lo imposible", apareceEn: "Simulación de negociación, IA moderadora." },
+                { nombre: "Rodrigo Londoño Echeverri", emoji: "🕊️", rol: "Excomandante guerrillero (Timochenko).", contexto: "Firmante del Acuerdo de Paz.", arquetipo: "El contradictor histórico", apareceEn: "Cápsula crítica, trivia de historia reciente." }
+            ],
+            "🎨 Personajes Históricos: Arte y Cultura": [
+                { nombre: "Débora Arango", emoji: "💃", rol: "Pintora y mujer vanguardista.", contexto: "Artista que desafió la censura con temas sociales, políticos y eróticos.", arquetipo: "La rebelde profética", apareceEn: "Galería IA, mural interactivo, tarot de personajes." },
+                { nombre: "Fernando Botero", emoji: "🍊", rol: "Pintor y escultor de renombre internacional.", contexto: "Maestro del volumen universal.", arquetipo: "El exagerado lúcido", apareceEn: "Galería IA, trivia de arte, IA visual." },
+                { nombre: "Víctor Gaviria", emoji: "🎞️", rol: "Cineasta de lo marginal y la realidad urbana.", contexto: "Da voz al Medellín olvidado a través de su cine.", arquetipo: "El cronista marginal", apareceEn: "Cápsulas de cine, entrevistas IA, juego de decisiones." },
+                { nombre: "Tomás Carrasquilla", emoji: "📖", rol: "Escritor costumbrista.", contexto: "Cronista del habla y la cultura paisa.", arquetipo: "Narrador rural", apareceEn: "Lecturas dramatizadas, IA que cuenta historias." },
+                { nombre: "Gonzalo Arango", emoji: "💥", rol: "Poeta y líder del movimiento nadaísta.", contexto: "Figura de la vanguardia artística de Medellín en los años 50-70.", arquetipo: "Rebelde metafísico", apareceEn: "IA generativa poética, tarot poético." },
+                { nombre: "Rodrigo Arenas Betancur", emoji: "🗿", rol: "Escultor monumental.", contexto: "Artista del siglo XX conocido como el constructor de la memoria.", arquetipo: "Constructor de memoria", apareceEn: "Mapa 3D de esculturas, trivia, guía virtual." },
+                { nombre: "Karol G", emoji: "🎤", rol: "Cantante urbana y figura global.", contexto: "Representante del feminismo musical paisa.", arquetipo: "La Bichota / Reina urbana", apareceEn: "Música en app, IA de frases, cápsulas." },
+                { nombre: "J Balvin", emoji: "🌈", rol: "Cantante urbano y embajador cultural.", contexto: "Ícono del reguetón que ha globalizado la cultura de Medellín.", arquetipo: "Estrella pop paisa", apareceEn: "IA sonora, trivias musicales, personaje guía." },
+                { nombre: "Juanes", emoji: "🎸", rol: "Músico global y activista por la paz.", contexto: "Cantautor de rock y pop con raíz paisa.", arquetipo: "El trovador de masas", apareceEn: "Banda sonora, videoclip animado, app." },
+                { nombre: "Darío Gómez", emoji: "💔", rol: "Cantante de música popular.", contexto: "Ícono de la canción de despecho.", arquetipo: "El rey del dolor amoroso", apareceEn: "Karaoke IA, trivia musical, cápsulas sentimentales." },
+                { nombre: "Carlos Vives", emoji: "🪗", rol: "Músico y actor.", contexto: "Renovador del vallenato y la música colombiana.", arquetipo: "El mestizo festivo", apareceEn: "Karaoke IA, mapa musical, cápsula de fusiones." },
+                { nombre: "Catalina García (Monsieur Periné)", emoji: "🎷", rol: "Cantante.", contexto: "Fusión de tradición y modernidad en la música latinoamericana.", arquetipo: "La musa tropical", apareceEn: "IA sonora, trivia de sonidos, juego de estilos." },
+                { nombre: "Sebastián Yatra", emoji: "🎶", rol: "Cantante pop latino.", contexto: "Figura global con raíz paisa.", arquetipo: "El ídolo global juvenil", apareceEn: "Karaoke, cápsula musical, trivia de identidad." },
+                { nombre: "Jorge Franco", emoji: "🔪", rol: "Escritor.", contexto: "Autor de 'Rosario Tijeras', narrador del Medellín oscuro.", arquetipo: "Narrador de lo oscuro urbano", apareceEn: "IA narrativa, juego de novela interactiva." },
+                { nombre: "Fernando Vallejo", emoji: "🔥", rol: "Escritor y polemista.", contexto: "Crítico del poder y la religión.", arquetipo: "El incendiario ilustrado", apareceEn: "IA literaria aguda, cápsula crítica, frases provocadoras." },
+                { nombre: "Carolina Sanín", emoji: "🧠", rol: "Escritora y pensadora.", contexto: "Intelectual polémica y creativa contemporánea.", arquetipo: "La provocadora ilustrada", apareceEn: "IA de debate, trivia de filosofía." },
+                { nombre: "Jaime Garzón", emoji: "👞", rol: "Humorista político.", contexto: "Asesinado en 1999, ícono de la sátira y la crítica social.", arquetipo: "El bufón trágico", apareceEn: "IA satírica, cápsula crítica, juego de frases." }
+            ],
+            "🔬 Personajes Históricos: Sociedad, Ciencia y Medios": [
+                { nombre: "María Cano", emoji: "✊", rol: "Sindicalista, poeta y primera lideresa política popular.", contexto: "Figura de la década de 1920 en la Medellín obrera.", arquetipo: "La heroína incómoda", apareceEn: "Podcast, trivias, holograma, IA." },
+                { nombre: "Héctor Abad Gómez", emoji: "🩺", rol: "Médico, activista y defensor de los derechos humanos.", contexto: "Asesinado por denunciar injusticias.", arquetipo: "Mártir cívico", apareceEn: "Podcast dramatizado, cápsula testimonial." },
+                { nombre: "Guillermo Cano", emoji: "📰", rol: "Periodista, mártir de la libertad de prensa.", contexto: "Director de El Espectador asesinado por el narcotráfico.", arquetipo: "Voz incómoda", apareceEn: "Hemeroteca IA, cápsula histórica, trivia de medios." },
+                { nombre: "Estanislao Zuleta", emoji: "🤔", rol: "Filósofo y crítico cultural.", contexto: "Representa la filosofía del inconforme.", arquetipo: "El pensador inconforme", apareceEn: "IA filosófica, frases generativas." },
+                { nombre: "Francisco Lopera", emoji: "🧠", rol: "Neurólogo.", contexto: "Investigador del Alzheimer genético en Antioquia.", arquetipo: "Científico del futuro", apareceEn: "Juego científico, IA médica, cápsula sobre genética." },
+                { nombre: "Ángela Restrepo", emoji: "🔬", rol: "Microbióloga.", contexto: "Científica pionera en Colombia.", arquetipo: "Sabia moderna", apareceEn: "Trivia científica, app de ciencia, biografía animada." },
+                { nombre: "Diana Uribe", emoji: "🌍", rol: "Historiadora y divulgadora radial.", contexto: "Educadora que ha narrado la historia universal para generaciones.", arquetipo: "La narradora del tiempo", apareceEn: "Podcast histórico, trivia interactiva, IA pedagógica." },
+                { nombre: "Nicanor Restrepo", emoji: "📈", rol: "Empresario ético.", contexto: "Líder del GEA, modelo de empresa ciudadana.", arquetipo: "Empresario visionario", apareceEn: "Juego de simulación empresarial, cápsulas económicas." },
+                { nombre: "Sofía Ospina de Navarro", emoji: "🖼️", rol: "Gestora cultural.", contexto: "Mujer pionera en la cultura y el arte de Medellín.", arquetipo: "Matrona del arte paisa", apareceEn: "Podcast de historia femenina, juego de legado cultural." },
+                { nombre: "Andrés Escobar", emoji: "⚽", rol: "Futbolista.", contexto: "Ícono trágico del fútbol colombiano, asesinado tras el Mundial de 1994.", arquetipo: "Mártir del deporte", apareceEn: "Homenaje visual, trivia de fútbol, cápsula emotiva." },
+                { nombre: "Mariana Pajón", emoji: "🚲", rol: "Bicicrosista y múltiple campeona olímpica.", contexto: "Símbolo de tenacidad y éxito deportivo.", arquetipo: "Heroína atlética", apareceEn: "Trivia deportiva, logros de juego, cápsulas." },
+                { nombre: "Mariana Mesa", emoji: "🎾", rol: "Extenista y dirigente deportiva.", contexto: "Promotora de la equidad en el deporte.", arquetipo: "La estratega del juego", apareceEn: "Trivia deportiva, IA atlética, cápsula de historia olímpica." }
+            ],
+            "🏙️ Entidades Simbólicas (Personificadas)": [
+                { nombre: "Metro de Medellín", emoji: "🚇", rol: "Sistema de transporte y orgullo cívico.", contexto: "Símbolo de orden, transformación y 'Cultura Metro'.", arquetipo: "El progreso ordenado", apareceEn: "Navegador en app, estación de retos, personaje en podcast." },
+                { nombre: "Comuna 13", emoji: "🎨", rol: "Territorio de transformación social por el arte.", contexto: "Símbolo de la resiliencia de Medellín desde el 2000.", arquetipo: "El ave fénix urbano", apareceEn: "Graffiti interactivo con AR, cápsulas de video." },
+                { nombre: "Coltejer", emoji: "🏭", rol: "Industria textil y emblema industrial.", contexto: "Símbolo de la industrialización paisa del siglo XX.", arquetipo: "El gigante industrial", apareceEn: "Trivia histórica, IA fabril, minijuego obrero." },
+                { nombre: "Ruta N / Distrito Innovador", emoji: "💡", rol: "Símbolo de la tecnología y el futuro.", contexto: "Representa la apuesta de Medellín por la innovación.", arquetipo: "Futuro en código", apareceEn: "Retos de lógica, trivia digital." },
+                { nombre: "Parques Biblioteca", emoji: "📚", rol: "Acceso cultural e inclusión arquitectónica.", contexto: "Símbolos de la transformación social y educativa de Medellín.", arquetipo: "Inclusión arquitectónica", apareceEn: "Desafíos de conocimiento, rutas de aprendizaje." }
+            ],
+            "📖 Personajes Literarios": [
+                 { nombre: "El Poeta Leproso", emoji: "🗣️", rol: "Vidente social que dice verdades incómodas.", contexto: "Del universo 'País de Cosiacas, Ciegos y Puritanos'.", arquetipo: "Profeta excluido", apareceEn: "Cápsulas poéticas, interacciones que revelan secretos." },
+                 { nombre: "Teniente Reseco", emoji: "👮", rol: "Representante del Estado y la policía.", contexto: "Impone el orden sin compasión.", arquetipo: "Autoridad represiva", apareceEn: "Obstáculos narrativos en juegos, dilemas morales." },
+                 { nombre: "Doña Jacinta", emoji: "🙏", rol: "Matrona religiosa.", contexto: "Regenta el deber ser social con una doble moral.", arquetipo: "Moralista hipócrita", apareceEn: "Personaje que impone reglas sociales en la narrativa." },
+                 { nombre: "Ciego Ilustrado", emoji: "🦯", rol: "Sabio ciego cuya ceguera revela verdades.", contexto: "La lucidez en la oscuridad.", arquetipo: "Paradoja lúcida", apareceEn: "Guía filosófico en misiones, acertijos." }
+            ],
+            "🪕 Personajes Costumbristas y Ficticios": [
+                { nombre: "Marrullas", emoji: "🃏", rol: "Comerciante callejero, encantador y tramposo.", contexto: "Pone a prueba la astucia del jugador.", arquetipo: "El pícaro criollo", apareceEn: "Cartas de juego, IA conversacional, NPC en videojuego." },
+                { nombre: "Doña Fulgencia", emoji: "👵", rol: "Vendedora de arepas y matrona de barrio.", contexto: "Interroga con refranes y ofrece sabiduría popular.", arquetipo: "La matrona sabia", apareceEn: "Trivia de cocina, NPC que da 'power-ups'." },
+                { nombre: "Pedro Rimales", emoji: "🤫", rol: "Chismoso del pueblo, narrador oral que deforma todo.", contexto: "Causa el caos en el Archivo de la Memoria.", arquetipo: "El narrador deformador", apareceEn: "Antagonista en videojuego, sketches animados." },
+                { nombre: "Monja Retrechera", emoji: "🧐", rol: "Espía del confesionario que juzga con una sonrisa.", contexto: "Personaje de ficción que representa la vigilancia social.", arquetipo: "Espía del confesionario", apareceEn: "Misiones de sigilo, personaje de intriga." },
+                { nombre: "Niño Canzón", emoji: "👦", rol: "Energía sin filtro, el caos inocente.", contexto: "Representa la espontaneidad y la travesura.", arquetipo: "Caos inocente", apareceEn: "Minijuegos impredecibles, eventos aleatorios." },
+                { nombre: "Chiva Rumbera", emoji: "🚌", rol: "Transporte mítico y festivo.", contexto: "El alma de la fiesta sobre ruedas.", arquetipo: "La fiesta sobre ruedas", apareceEn: "Minijuegos rítmicos, transiciones festivas." }
+            ],
+            "🎧 Personajes Juveniles y Contemporáneos": [
+                 { nombre: "Laura Maker", emoji: "👩‍💻", rol: "Programadora de barrio, constructora de tecnologías cívicas.", contexto: "Representa la innovación social desde las comunidades.", arquetipo: "La hacker del bien", apareceEn: "Juegos de lógica, personaje jugable, invitada en podcast." },
+                 { nombre: "Ander Freestylero", emoji: "🎤", rol: "Rapero, MC y trovador urbano.", contexto: "Joven de la Comuna 13 que rima sobre historia y actualidad.", arquetipo: "El poeta callejero", apareceEn: "Batallas de versos IA, personaje jugable." },
+                 { nombre: "Yina Delivery", emoji: "🛹", rol: "Patinadora veloz, guía urbana y mensajera.", contexto: "Representa la agilidad y la supervivencia urbana.", arquetipo: "La Hermes paisa", apareceEn: "Misiones en videojuego, chatbot móvil, cómic animado." },
+                 { nombre: "DJ Crudo", emoji: "🎛️", rol: "Mezclador de ritmos y trovador electrónico.", contexto: "Representa la fusión cultural, mezclando techno y trova.", arquetipo: "El alquimista del beat", apareceEn: "App musical, desafíos sonoros, cómic animado." },
+                 { nombre: "Sofi Travesía", emoji: "🚶‍♀️", rol: "Exploradora urbana y narradora de la ciudad.", contexto: "Camina y narra la ciudad viva, descubriendo sus secretos.", arquetipo: "La viajera local", apareceEn: "Avatar jugable, guía en rutas de AR, blog de personaje." },
+                 { nombre: "Nico Graffitero", emoji: "🎨", rol: "Muralista y cronista visual.", contexto: "Usa los murales como una forma de resistencia y memoria.", arquetipo: "El cronista visual rebelde", apareceEn: "Puzzles visuales, creación de murales digitales." },
+                 { nombre: "Valentina TrovaTiktoker", emoji: "💃", rol: "Influencer y trovadora digital.", contexto: "Recita sabiduría popular y trovas en redes sociales.", arquetipo: "La influencer popular", apareceEn: "Desafíos virales, cápsulas de video corto." },
+                 { nombre: "Felipe Zapata “Aka Zaa”", emoji: "�", rol: "Rapero y pedagogo.", contexto: "Promotor de arte urbano y educación.", arquetipo: "El maestro rimador", apareceEn: "Talleres virtuales, juego de rima, IA freestyler." }
+            ]
+        };
+
+        // --- LÓGICA DE LA APLICACIÓN ---
+        const categoriasContainer = document.getElementById('categorias-container');
+        const modal = document.getElementById('modal');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const sections = document.querySelectorAll('.section-content');
+        const searchInput = document.getElementById('search-input');
+
+        function renderCategorias(data) {
+            categoriasContainer.innerHTML = '';
+            for (const categoria in data) {
+                const personajesEnCategoria = data[categoria];
+                if (personajesEnCategoria.length === 0) continue;
+
+                const categoriaSection = document.createElement('div');
+                
+                const categoriaTitle = document.createElement('h2');
+                categoriaTitle.className = 'font-cinzel text-3xl font-bold text-amber-400 mb-6 border-b-2 border-amber-800 pb-2';
+                categoriaTitle.innerHTML = categoria;
+                categoriaSection.appendChild(categoriaTitle);
+                
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6';
+                
+                personajesEnCategoria.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'card-gradient p-5 rounded-lg shadow-md cursor-pointer card-hover-effect flex flex-col items-center text-center';
+                    card.dataset.name = p.nombre;
+                    card.dataset.category = categoria;
+                    
+                    card.innerHTML = `
+                        <div class="text-6xl mb-4">${p.emoji || '👤'}</div>
+                        <h4 class="font-bold text-xl text-amber-400 truncate w-full">${p.nombre}</h4>
+                        <p class="text-sm text-gray-400 mt-1">${p.arquetipo}</p>
+                    `;
+                    grid.appendChild(card);
+                });
+                
+                categoriaSection.appendChild(grid);
+                categoriasContainer.appendChild(categoriaSection);
+            }
+            addCardEventListeners();
+        }
+
+        function openModal(category, name) {
+            const personaje = universoCosiaca[category].find(p => p.nombre === name);
+            if (!personaje) return;
+
+            modalBody.innerHTML = `
+                <div class="text-center mb-4">
+                    <span class="text-7xl">${personaje.emoji || '👤'}</span>
+                </div>
+                <h3 class="font-cinzel text-3xl font-bold text-amber-400 mb-4 text-center">${personaje.nombre}</h3>
+                <div class="space-y-4">
+                    <div><h4 class="font-bold text-lg text-amber-300">🎭 Arquetipo:</h4><p class="text-gray-300">${personaje.arquetipo}</p></div>
+                    <div><h4 class="font-bold text-lg text-amber-300">👤 Rol:</h4><p class="text-gray-300">${personaje.rol}</p></div>
+                    <div><h4 class="font-bold text-lg text-amber-300">🌍 Contexto:</h4><p class="text-gray-300">${personaje.contexto}</p></div>
+                    <div><h4 class="font-bold text-lg text-amber-300">📱 Aparece en:</h4><p class="text-gray-300">${personaje.apareceEn}</p></div>
+                </div>
+            `;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function addCardEventListeners() {
+            const cards = document.querySelectorAll('.card-gradient');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    openModal(card.dataset.category, card.dataset.name);
+                });
+            });
+        }
+        
+        function handleTabClick(e) {
+            const tabId = e.currentTarget.dataset.tab;
+            tabButtons.forEach(button => {
+                button.classList.remove('tab-active');
+                button.classList.add('tab-inactive');
+            });
+            e.currentTarget.classList.add('tab-active');
+            e.currentTarget.classList.remove('tab-inactive');
+
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === tabId) {
+                    section.classList.add('active');
+                }
+            });
+        }
+        
+        function handleSearch(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredData = {};
+            for (const categoria in universoCosiaca) {
+                const filteredPersonajes = universoCosiaca[categoria].filter(p => 
+                    p.nombre.toLowerCase().includes(searchTerm) || 
+                    p.arquetipo.toLowerCase().includes(searchTerm)
+                );
+                if (filteredPersonajes.length > 0) {
+                    filteredData[categoria] = filteredPersonajes;
+                }
+            }
+            renderCategorias(filteredData);
+        }
+
+        // --- INICIALIZACIÓN ---
+        renderCategorias(universoCosiaca);
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+        tabButtons.forEach(button => button.addEventListener('click', handleTabClick));
+        searchInput.addEventListener('input', handleSearch);
+    </script>
+</body>
+</html>
+�
